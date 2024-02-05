@@ -36,14 +36,13 @@ class Car:
         if desired_gear < self.current_gear:
             self.shift_gear_down(desired_gear)
 
-        def shift_up_one():
-            self.current_gear += 1
-            self.current_consumption += 1
-            self.current_speed += 1
-            print("Shifted one gear up. Current shifted gear is " + str(self.current_gear) + ". Current consumption is "
-                  + str(self.current_consumption) + " litre(s) per km")
+        self.current_gear += 1
+        self.current_consumption += 1
+        self.current_speed += 1
+        print("Shifted one gear up. Current shifted gear is " + str(self.current_gear) + ". Current consumption is "
+              + str(self.current_consumption) + " litre(s) per km")
         while self.current_gear < desired_gear:
-            shift_up_one()
+            self.shift_gear_up(desired_gear)
             if self.current_gear > 5:
                 print("There are only five gears in a car!!!")
                 desired_gear = 5
@@ -56,14 +55,13 @@ class Car:
         if desired_gear > self.current_gear:
             print("Your current shifted gear is lower!")
 
-        def shift_down_one():
-            self.current_gear -= 1
-            self.current_consumption -= 1
-            self.current_speed -= 1
-            print("Shifted one gear down. Current shifted gear is " + str(self.current_gear) + "."
-                  " Current consumption is " + str(self.current_consumption) + " litre(s) per km")
+        self.current_gear -= 1
+        self.current_consumption -= 1
+        self.current_speed -= 1
+        print("Shifted one gear down. Current shifted gear is " + str(self.current_gear) + "."
+              " Current consumption is " + str(self.current_consumption) + " litre(s) per km")
         while self.current_gear > desired_gear:
-            shift_down_one()
+            self.shift_gear_down(desired_gear)
             if self.current_gear < 0:
                 print("You cannot shift below zero! Zero is now shifted.")
                 desired_gear = 0
